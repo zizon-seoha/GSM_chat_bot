@@ -73,12 +73,14 @@ if user_input:
     st.chat_message("user").write(user_input)
     st.session_state.messages.append({"role": "user", "content": user_input})
     
-    # AI 답변 생성 및 에러 처리
     with st.chat_message("assistant"):
         try:
-            with st.spinner("선배가 기억을 더듬는 중...🤔"):
-                response = rag_chain.invoke(user_input)
-                st.write(response)
-                st.session_state.messages.append({"role": "assistant", "content": response})
+            # 스피너(로딩) 대신 곧바로 타이핑을 시작하도록 바꿉니다!
+            response_stream = rag_chain.stream(user_input) # 실시간으로 쪼개서 가져오기
+            
+            # st.write_stream이 타다다닥 치는 효과를 자동으로 만들어줍니다.
+            response = st.write_stream(response_stream) 
+            
+            st.session_state.messages.append({"role": "assistant", "content": response})
         except Exception as e:
             st.error("앗! 지금 나한테 질문하는 후배들이 너무 많아서 숨이 차네 헥헥 💦 딱 1분만 이따가 다시 질문해줄래?")
