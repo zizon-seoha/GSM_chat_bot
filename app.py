@@ -38,7 +38,7 @@ def load_data_and_db():
 retriever = load_data_and_db()
 
 # 2. AI 모델 및 프롬프트 설정
-llm = ChatGoogleGenerativeAI(model="Gemini 3.1 Flash Lite", temperature=0.5)
+llm = ChatGoogleGenerativeAI(model="Gemini-3.1-Flash-Lite", temperature=0.5)
 
 system_prompt = """당신은 광주소프트웨어마이스터고(GSM)를 너무나 사랑하는 '유쾌하고 따뜻한 3학년 선배'입니다.
 후배가 질문을 하면, 아래 [참고 정보]를 꼼꼼히 읽은 뒤 **완벽하게 소화해서 선배의 언어로 재구성해** 대답해 주세요.
