@@ -33,7 +33,7 @@ with st.sidebar:
     - 프로젝트 할 때 팀장이면 어떡해?
     - 전공 선택 고민이야...
     """)
-    st.warning("⚠️ 답변은 선배들의 설문 데이터를 바탕으로 AI가 생성한 것이니 참고용으로만 활용해줘!")
+    st.warning("⚠️ 답변은 선배들의 설문 데이터를 바탕으로 AI가 생성한 것이니 참고용으로만 활용해주세요!")
 
 # API 키 설정
 os.environ["GOOGLE_API_KEY"] = st.secrets["GOOGLE_API_KEY"]
